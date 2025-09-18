@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Ticket Booking</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 20px 40px;
+      text-align: center;
+      border-bottom: 3px solid #ffd700;
+    }
+
+    header h1 {
+      color: #ffd700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .movie-card {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .movie-card:hover {
+      transform: scale(1.05);
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .movie-card h3 {
+      padding: 15px;
+      text-align: center;
+      color: #ffd700;
+    }
+
+    .booking-form {
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .booking-form h2 {
+      margin-bottom: 20px;
+      color: #ffd700;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #ffd700;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #e5c100;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+      border-top: 2px solid #ffd700;
+    }
+
+    @media (max-width: 768px) {
+      .movie-card img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🎬 CineBook - Movie Ticket Booking</h1>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- Featured Movies -->
+    <section class="movies">
+      <div class="movie-card">
+        <img src="https://www.bookamovieticket.com/300x400?text=Avengers+Endgame" alt="Avengers">
+        <h3>Mirai</h3>
+        <img src="mirai.png" alt="mirai.png">
+      </div>
+      <div class="movie-card">
+        <img src="https://www.bookamovieticket.com/300x400?text=Oppenheimer" alt="Oppenheimer">
+        <h3>Littlehearts</h3>
+        <img src="littelehearts.png" alt="littlehearts.png">
+      </div>
+      <div class="movie-card">
+        <img src="https://www.bookamovieticket.com/300x400?text=Barbie" alt="Barbie">
+        <h3>Kishkindapuri</h3>
+        <img src="kishkindapuri.png" alt="kishkindapuri.png">
+      </div>
+      <div class="movie-card">
+        <img src="https://www.bookamovieticket.com/300x400?text=Dune+2" alt="Dune 2">
+        <h3>Coolie</h3>
+        <img src="coolie.jpg" alt="coolie.png">
+      </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-form">
+      <h2>Book Your Tickets</h2>
+      <form>
+        <label for="movie">Select Movie</label>
+        <select id="movie" name="movie" required>
+          <option value="">-- Choose a movie --</option>
+          <option value="mirai">Mirai</option>
+          <option value="littlehearts">Littlehearts</option>
+          <option value="kishkindapuri">Kishkindapuri</option>
+          <option value="coolie">Coolie</option>
+        </select>
+
+        <label for="location">Select Location</label>
+        <select id="location" name="location" required>
+          <option value="">-- Choose a location --</option>
+          <option value="tadepalligudem">Tadepalligudem</option>
+          <option value="bhimavaram">bhimavaram</option>
+          <option value="eluru">Eluru</option>
+          <option value="vijayawada">vijayawada</option>
+        </select>
+
+        <label for="theater">Select Theater</label>
+        <select id="theater" name="theater" required>
+          <option value="">-- Choose a theater --</option>
+          <option value="sheshmahall">Sheshmahall</option>
+          <option value="lakshminarayana">Lakshminarayana</option>
+          <option value="multiplex">Multiplex</option>
+          <option value="captialcinemas">Captial cinemas</option>
+        </select>
+
+        <label for="tickets">Number of Tickets</label>
+        <input type="number" id="tickets" name="tickets" min="1" max="10" required />
+
+        <label for="date">Choose Date</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="time">Choose Time</label>
+        <input type="time" id="time" name="time" required />
+
+        <input type="submit" value="Book Now">
+      </form>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 CineBook. All rights reserved.
+  </footer>
+
+</body>
+</html>
